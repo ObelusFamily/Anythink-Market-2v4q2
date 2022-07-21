@@ -4,13 +4,9 @@ import _superagent from "superagent";
 const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT =
-  process.env.NODE_ENV !== "production"
-    ? "http://localhost:3000/api"
-    : process.env.BACKEND_URL;
-
-console.log('API_ROOT: ' + API_ROOT);
-console.log('NODE_ENV: ' + process.env.NODE_ENV);
-console.log('BACKEND_URL ' + process.env.BACKEND_URL);
+  (process.env.NODE_ENV !== "production"
+    ? "http://localhost:3000/"
+    : process.env.REACT_APP_BACKEND_URL) + "/api";
 
 const encode = encodeURIComponent;
 const responseBody = (res) => res.body;
